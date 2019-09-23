@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Zoom : MonoBehaviour
 {
     private Camera _cameraAr;
     private float orthoZommSpeed = .5f;
     private float perspectiveZoomSpeed = .5f;
-    
+    GameObject Sun;
     
     void Start()
     {
+        Sun = GameObject.FindGameObjectWithTag("Sun");
         _cameraAr = GetComponent<Camera>();
     }
 
@@ -46,8 +48,11 @@ public class Zoom : MonoBehaviour
     }
 
 
-    public void CameraViewChange(float newCameraView)
+    public void CameraViewChange(Slider newCameraView)
     {
-        _cameraAr.fieldOfView = newCameraView * perspectiveZoomSpeed;
+        
+        float View = newCameraView.value;
+        Sun.transform.position = new Vector3(Sun.transform.position.x, Sun.transform.position.y, View);
+      //  _cameraAr.fieldOfView = View * perspectiveZoomSpeed;
     }
 }
