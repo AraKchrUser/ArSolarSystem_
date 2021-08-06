@@ -1,3 +1,3 @@
 # ArSolarSystem_
 
-![Alt Text](./outrsolar3.gif)
+![Alt Text](./outarsolar3.gif)
